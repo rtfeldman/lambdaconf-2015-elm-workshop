@@ -40,10 +40,10 @@ type alias Model = {
 
 initialModel : Model
 initialModel = {
-    monsters      = [], -- TODO we should put some monsters in here.
+    monsters      = [], -- TODO we should populate this with some monsters from Monsters.elm
 
     selectedSpell = Nothing,
-    knownSpells   = [] -- TODO we should put some spells in here.
+    knownSpells   = [] -- TODO we should populate this with some spells from Spells.elm
   }
 
 
@@ -59,7 +59,7 @@ type Action
 update : Action -> Model -> Model
 update action model =
 
-  -- TODO this is where we should update the model based on the given action.
+  -- TODO this is where we should update the Model based on the given Action.
   model
 
 
@@ -70,10 +70,10 @@ view actions model =
   div [id "page"] [
     h1 [] [text "Elm Wizardry!"],
 
-    -- TODO this is where we should render the spells
+    -- TODO this is where we should render the spells using the viewSpell function below
     div [id "spells"] [],
 
-    -- TODO this is where we should render the monsters
+    -- TODO this is where we should render the monsters using the viewMonster function below
     div [id "monsters"] []
   ]
 
