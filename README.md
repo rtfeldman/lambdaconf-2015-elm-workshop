@@ -46,7 +46,7 @@ An important caveat is that there is an [open bug](https://github.com/elm-lang/e
 If you prefer to do most of your work inside a REPL, you can get a lot of mileage out of working around this by extracting your Model and Action logic into a separate module outside Wizardry.elm; those parts of the code base do not need to depend on elm-html like the view logic does.
 
 
-### What do I do if elm-reactor crashes?
+### Help! elm-reactor crashed!
 
 Although [elm-reactor](http://elm-lang.org/blog/Introducing-Elm-Reactor.elm) is very cool, it is also very pre-1.0!
 
