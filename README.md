@@ -32,7 +32,20 @@ Once installation completes, you should be able to run the following:
 6. Under the `Other Files` heading, click `index.html` to open the app! You should see this: ![1_basic](https://cloud.githubusercontent.com/assets/1094080/7787634/56420f74-01d3-11e5-83f4-6e6510b5104a.png)
 
 
-### What if elm-reactor crashes?
+### Using elm-reactor, elm-make, and elm-repl
+
+The workshop will use elm-reactor for the convenience of automatic recompilation, but as elm-reactor is a ways off from a stable 1.0 release (see the next section for workarounds to some known issues), you may prefer to use the much more stable Elm Compiler directly via `elm-make` or `elm-repl`.
+
+The most direct way to do a build is simply to run `elm-make Wizardry.elm` from within the same directory as the `Wizardry.elm` file. This will generate an output file called `elm.js`, which `index.html` is already configured to load. The downside to this approach is that you need to re-run this command each time you want to recompile.
+
+Alternatively, you can check whether your code compiles from within `elm-repl` before doing a build. To start up the REPL, simply run `elm-repl`. Once inside, enter `import Wizardry` to compile and load `Wizardry.elm` into the current REPL session. When you enter a term into `elm-repl`, it always prints both the value as well as the type; there is no need to separately query for type information. If you enter a function - for example, `List.map`, it will print `<function>` followed by the function's type.
+
+An important caveat is that there is an [open bug](https://github.com/elm-lang/elm-repl/issues/48) where modules that depend directly on elm-html cannot have their terms successfully evaluated in elm-repl. (The error message you'll see is "ReferenceError: navigator is not defined".) So if you do `import Wizardry` and then enter `Wizardry.view`, you will get an error instead of what you want. However, if you do `import Spells` and then enter `Spells.freeze`, or something similar with `import Monsters`, it will work as normal because those modules do not depend on elm-html directly.
+
+If you prefer to do most of your work inside a REPL, you can get a lot of mileage out of working around this by extracting your Model and Action logic into a separate module outside Wizardry.elm; those parts of the code base do not need to depend on elm-html like the view logic does.
+
+
+### What do I do if elm-reactor crashes?
 
 Although [elm-reactor](http://elm-lang.org/blog/Introducing-Elm-Reactor.elm) is very cool, it is also very pre-1.0!
 
