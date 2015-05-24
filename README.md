@@ -20,3 +20,7 @@ Once installation completes, you should be able to run the following:
 * `elm-package --version` (This is the Elm package manager. It should be on version 0.5)
 * `elm-repl --version` (This is the Elm REPL. It should be on version 0.4)
 * `elm-reactor --version` (This is the Elm Reactor, aka Time Traveling Debugger. It should be on version 0.3.1)
+
+### More Materials Coming Soon!
+
+By 11am Sunday there will be plenty more here. :)
