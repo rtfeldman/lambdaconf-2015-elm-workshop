@@ -54,6 +54,7 @@ initialModel = {
 -- some alternatives: http://elm-lang.org/learn/Architecture.elm
 type Action
     = NoOp
+    -- TODO add an Action for selecting a spell.
 
 -- Update our Model using a given Action
 update : Action -> Model -> Model
@@ -70,11 +71,13 @@ view actions model =
   div [id "page"] [
     h1 [] [text "Elm Wizardry!"],
 
-    -- TODO this is where we should render the spells using the viewSpell function below
-    div [id "spells"] [],
+    div [id "content"] [
+      -- TODO this is where we should render the spells using the viewSpell function below
+      div [id "spells"] [],
 
-    -- TODO this is where we should render the monsters using the viewMonster function below
-    div [id "monsters"] []
+      -- TODO this is where we should render the monsters using the viewMonster function below
+      div [id "monsters"] []
+    ]
   ]
 
 -- Render a single monster

@@ -37,13 +37,7 @@ type alias Model = {
     monsters      : List Monster,
 
     selectedSpell : Maybe Spell,
-    knownSpells   : List Spell,
-
-    playerMana    : Int,
-    playerHealth  : Int,
-
-    gameStatus    : GameStatus,
-    statusMessage : String
+    knownSpells   : List Spell
   }
 
 initialModel : Model
@@ -59,13 +53,7 @@ initialModel = {
       Spells.roast,
       Spells.freeze,
       Spells.zap
-    ],
-
-    playerMana    = 100,
-    playerHealth  = 100,
-
-    gameStatus    = Playing,
-    statusMessage = "Choose a spell, then choose a monster to cast it on."
+    ]
   }
 
 
@@ -76,77 +64,20 @@ initialModel = {
 -- some alternatives: http://elm-lang.org/learn/Architecture.elm
 type Action
     = NoOp
-    | CastSpellOnMonster Int
     | SelectSpell Spell
-    | Recharge
-
-resolveSpellOnMonster spell monster =
-  { monster | health <- monster.health - spell.damage }
-
-displayInsufficientMana model spell =
-  { model | statusMessage <- "You do not have enough mana to cast " ++ spell.name ++ "." }
+    -- TODO add an Action for casting the selected spell on a monster.
 
 -- Update our Model using a given Action
 update : Action -> Model -> Model
 update action model =
-  resolveModel <| case action of
+  case action of
     NoOp -> model
 
     SelectSpell spell ->
       { model | selectedSpell <- Just spell }
 
-    CastSpellOnMonster targetMonsterIndex ->
-      case model.selectedSpell of
-        Nothing ->
-          { model | statusMessage <- "Choose a spell first!" }
+    -- TODO handle the case where we got an Action for casting the selected spell on a monster.
 
-        Just spell ->
-          if spell.manaCost > model.playerMana
-            then
-              displayInsufficientMana model spell
-
-            else
-              let updateMonsterByIndex = \index monster ->
-                if index == targetMonsterIndex
-                  then resolveSpellOnMonster spell monster
-                  else monster
-              in
-                { model |
-                    monsters      <- List.indexedMap updateMonsterByIndex model.monsters,
-                    playerMana    <- model.playerMana - spell.manaCost,
-                    statusMessage <- "Pow! You cast " ++ spell.name ++ "."
-                }
-
-    Recharge ->
-      let totalDamage = List.sum (List.map .damage model.monsters)
-      in
-        { model |
-            playerMana    <- 100,
-            playerHealth  <- model.playerHealth - totalDamage,
-            statusMessage <- "You recharge, but lose " ++ (toString totalDamage) ++ " health!"
-        }
-
--- Resolves invalid model fields as follows:
-
--- If the player has 0 health or less, the game is lost.
--- Any monsters with 0 health or less are removed.
--- If there are no monsters remaining, the game is won.
-resolveModel : Model -> Model
-resolveModel model =
-  if model.playerHealth <= 0
-    then
-      { model | gameStatus <- Lost }
-
-    else
-      let survivingMonsters =
-        List.filter (\monster -> monster.health > 0) model.monsters
-      in
-        if List.isEmpty survivingMonsters
-          then
-            { model | gameStatus <- Won }
-
-          else
-            { model | monsters <- survivingMonsters }
 
 ---- VIEW ----
 
@@ -155,37 +86,20 @@ view actions model =
   div [id "page"] [
     h1 [] [text "Elm Wizardry!"],
 
-    div [id "content"] <| case model.gameStatus of
-      Won -> [
-          div [id "you-won"] [],
-          div [class "game-status-text"] [text "YOU WON!"]
-        ]
+    div [id "content"] [
+      div [id "spells"]
+        (List.map (viewSpell actions model.selectedSpell) model.knownSpells),
 
-      Lost -> [
-          div [id "you-lost"] [],
-          div [class "game-status-text"] [text "GAME OVER!"]
-        ]
-
-      Playing -> [
-          div [id "stats"] [
-            div [id "player-health"] [text ("Health: " ++ (toString model.playerHealth))],
-            div [id "player-mana"] [text ("Mana: " ++ (toString model.playerMana))],
-            viewRecharge actions
-          ],
-
-          div [id "status-message"] [text model.statusMessage],
-
-          div [id "spells"]
-            (List.map (viewSpell actions model.selectedSpell) model.knownSpells),
-
-          div [id "monsters"]
-            (List.indexedMap (viewMonster actions) model.monsters)
-        ]
+      div [id "monsters"]
+        -- TODO pass in actions so viewMonster can send an action to it onClick
+        (List.map viewMonster model.monsters)
     ]
+  ]
 
-viewMonster : Address Action -> Int -> Monster -> Html
-viewMonster actions index monster =
-  div [class "monster", onClick actions (CastSpellOnMonster index)] [
+viewMonster : Monster -> Html
+viewMonster monster =
+  -- TODO add an onClick handler that casts the selected spell on this monster
+  div [class "monster"] [
     div [class "monster-name"] [text monster.name],
     img [src monster.imageUrl] [],
     div [class "monster-health"] [text ((toString monster.health) ++ " ♥")],
@@ -195,7 +109,9 @@ viewMonster actions index monster =
 viewSpell : Address Action -> Maybe Spell -> Spell -> Html
 viewSpell actions selectedSpell spell =
   let spellClass = case selectedSpell of
-    Nothing -> "spell"
+    Nothing ->
+      "spell"
+
     Just selection ->
       if selection == spell
         then "spell selected"
@@ -205,11 +121,6 @@ viewSpell actions selectedSpell spell =
       img [src spell.imageUrl] [],
       span [class "spell-name"] [text spell.name]
     ]
-
-viewRecharge : Address Action -> Html
-viewRecharge actions =
-  div [id "recharge", onClick actions Recharge] [text "Recharge Mana"]
-
 
 ---- INPUTS ----
 

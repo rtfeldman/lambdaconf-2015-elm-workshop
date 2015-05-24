@@ -195,7 +195,9 @@ viewMonster actions index monster =
 viewSpell : Address Action -> Maybe Spell -> Spell -> Html
 viewSpell actions selectedSpell spell =
   let spellClass = case selectedSpell of
-    Nothing -> "spell"
+    Nothing ->
+      "spell"
+
     Just selection ->
       if selection == spell
         then "spell selected"
