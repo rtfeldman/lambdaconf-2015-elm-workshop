@@ -21,11 +21,13 @@ Some useful references to aid you in your journey:
 
 ---
 
-The files in this directory set up a basic app skeleton with a healthy dose of `TODO` comments sprinkled throughout. There are three Elm modules:
+The files in this directory set up a basic app skeleton with a healthy dose of `TODO` comments sprinkled throughout.
 
-`Wizardry.elm` - The main module, which specifies the bulk of the application logic
-`Monsters.elm` - A listing of monsters to defeat in the game
-`Spells.elm` - A listing of spells with which to defeat said monsters
+There are three Elm modules here:
+
+1. `Wizardry.elm` - The main module, which specifies the bulk of the application logic
+2. `Monsters.elm` - A listing of monsters to defeat in the game
+3. `Spells.elm` - A listing of spells with which to defeat said monsters
 
 The `Monsters` and `Spells` modules are separated out from the main `Wizardry` module mostly so you can see how Elm's module system works. You won't _need_ to edit those modules today, but of course if you want to add more Monsters or more Spells, or to modify the existing ones, by all means—have fun!
 
