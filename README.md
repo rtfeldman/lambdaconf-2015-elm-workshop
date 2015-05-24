@@ -22,6 +22,8 @@ Once installation completes, you should be able to run the following:
 * `elm-repl --version` (This is the Elm REPL. It should be on version 0.4)
 * `elm-reactor --version` (This is the Elm Reactor, aka Time Traveling Debugger. It should be on version 0.3.1)
 
+You may also want to install a [syntax highlighting plugin](http://elm-lang.org/Install.elm#syntax-highlighting) for your favorite editor.
+
 ### Set Up Workshop Materials
 
 1. Grab this repository with `git clone https://github.com/rtfeldman/lambdaconf-2015-elm-workshop.git`
