@@ -30,6 +30,7 @@ Once installation completes, you should be able to run the following:
 4. Run `elm-package install` to download and install the project’s dependencies. Answer `y` when prompted `"Do you approve of this plan? (y/n)"`
 5. Run `elm-reactor` and navigate to [localhost:8000](http://localhost:8000) in your browser. You should see this: ![elm-reactor screenshot](https://cloud.githubusercontent.com/assets/1094080/7787529/9cf9f198-01ce-11e5-9986-fc2da149f6d3.png)
 6. Under the `Other Files` heading, click `index.html` to open the app! You should see this: ![1_basic](https://cloud.githubusercontent.com/assets/1094080/7787634/56420f74-01d3-11e5-83f4-6e6510b5104a.png)
+7. From here, you can proceed directly to the [directions for Part 1 of the workshop](https://github.com/rtfeldman/lambdaconf-2015-elm-workshop/tree/master/1_basic), or continue reading below for some useful tips about your Elm development tools.
 
 
 ### Using elm-reactor, elm-make, and elm-repl
