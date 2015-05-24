@@ -34,7 +34,9 @@ Once installation completes, you should be able to run the following:
 
 ### What if elm-reactor crashes?
 
-Although elm-reactor is very cool, it is also very pre-1.0! Hot-swapping code doesn't always happen (but refreshing the page will, as usual, ensure you have the latest), and from time to time you may also encounter this: ![reactor crash](https://cloud.githubusercontent.com/assets/1094080/7787538/f4269a66-01ce-11e5-97ea-d9ab1d3bfd1f.png)
+Although [elm-reactor](http://elm-lang.org/blog/Introducing-Elm-Reactor.elm) is very cool, it is also very pre-1.0!
+
+Hot-swapping code doesn't always happen (but refreshing the page will, as usual, ensure you have the latest), and from time to time you may also encounter this: ![reactor crash](https://cloud.githubusercontent.com/assets/1094080/7787538/f4269a66-01ce-11e5-97ea-d9ab1d3bfd1f.png)
 
 Usually this can be resolved by going back to [http://localhost:8000](http://localhost:8000), clicking the wrench icon next to Wizardry.elm, and then returning to [http://localhost:8000/index.html](http://localhost:8000/index.html) once more.
 
