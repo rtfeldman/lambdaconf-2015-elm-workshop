@@ -1,0 +1,162 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 36px;
+  background-color: #F3843E;
+  padding: 20px 30px;
+  width: 600px;
+  text-align: center;
+  margin: 30px auto;
+  color: rgb(5, 5, 5);
+}
+
+#page {
+  width: 960px;
+  margin: 0 auto;
+  font-family: Germania One;
+}
+
+.monster {
+  width: 200px;
+  display: inline-block;
+  background-color: #393939;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 5px solid #aaa;
+}
+
+.monster:hover {
+  opacity: 0.6;
+}
+
+.monster img {
+  width: 200px;
+}
+
+.monster-name, .monster-health, .monster-damage {
+  font-size: 28px;
+}
+
+.monster-name {
+  text-align: center;
+  color: #ddd;
+  width: 200px;
+}
+
+.monster-health {
+  color: #FF9900;
+  float: left;
+}
+
+.monster-damage {
+  color: #FF9900;
+  float: right;
+}
+
+#spells {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.spell {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  padding: 15px;
+  margin: 15px;
+  cursor: pointer;
+  border: 5px solid transparent;
+  border-radius: 100%;
+}
+
+.spell:hover {
+  opacity: 0.6;
+}
+
+.spell.selected {
+  border-color: #FF9900;
+}
+
+.spell img {
+  height: 80px;
+  display: block;
+  margin: 15px auto;
+}
+
+.spell-name {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  font-size: 24px;
+}
+
+#stats {
+  display: block;
+  width: 660px;
+  margin: 0 auto;
+  font-size: 24px;
+  color: #393939;
+}
+
+#stats:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+#player-health {
+  float: left;
+}
+
+#player-mana {
+  float: right;
+}
+
+#status-message {
+  font-size: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #eee;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+#recharge {
+  padding: 10px;
+  background-color: #f3843e;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+#recharge:hover {
+  background-color: rgb(5, 5, 5);
+  color: #eee;
+}
+
+#you-won {
+  background: url(http://cdn3.whatculture.com/wp-content/uploads/2013/06/Gandalf.png);
+  height: 300px;
+  width: 600px;
+  margin: 60px auto;
+}
+
+#you-lost {
+  background: url(http://cdn.twentytwowords.com/wp-content/uploads/ZZ-Gandalf-634x475.jpg?8751ae);
+  height: 475px;
+  width: 634px;
+  margin: 60px auto;
+}
+
+.game-status-text {
+  font-size: 96px;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #393939;
+}
