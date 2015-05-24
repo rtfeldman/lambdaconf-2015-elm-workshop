@@ -9,7 +9,17 @@ We'll be building towards a working Adventure Game, but don't sweat it if you do
 2. Gain familiarity with building things in Elm
 3. Have fun
 
-Our primary goal in Part 1 of the workshop is simply to get comfortable writing some Elm code. All the HTML and CSS for this game has already been written, so you should be able to spend the whole workshop editing `Wizardry.elm` exclusively.
+Our primary goal in Part 1 of the workshop is simply to get comfortable writing some Elm code. All the HTML and CSS for this game has already been written, so you should be able to spend the whole workshop editing `Wizardry.elm`.
+
+Some useful references to aid you in your journey:
+
+* [The Elm Syntax Reference](http://elm-lang.org/learn/Syntax.elm)
+* [Using Modules](http://elm-lang.org/learn/Syntax.elm#modules)
+* [Union Types](http://elm-lang.org/learn/Union-Types.elm) (`Action` is an example of a union type)
+* [Records](http://elm-lang.org/learn/Records.elm) (those things that look a lot like JavaScript objects)
+* [The Elm Architecture](https://github.com/evancz/elm-architecture-tutorial#the-elm-architecture) (updating your Model via Actions)
+
+---
 
 The files in this directory set up a basic app skeleton with a healthy dose of `TODO` comments sprinkled throughout. There are three Elm modules:
 
