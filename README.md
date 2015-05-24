@@ -28,8 +28,8 @@ Once installation completes, you should be able to run the following:
 2. Run `cd lambdaconf-2015-elm-workshop/1_basic`
 3. You should now be in a directory called `1_basic`. Run `ls` to see the contents of this `1_basic` directory; make sure you see these 6 files: `Monsters.elm`, `Wizardry.elm`, `Spells.elm`, `index.html`, `elm-package.json`, and `style.css`.
 4. Run `elm-package install` to download and install the project’s dependencies. Answer `y` when prompted `"Do you approve of this plan? (y/n)"`
-5. Run `elm-reactor` and navigate to [http://localhost:8000](http://localhost:8000) in your browser. You should see something like this: ![elm-reactor screenshot](https://cloud.githubusercontent.com/assets/1094080/7787529/9cf9f198-01ce-11e5-9986-fc2da149f6d3.png)
-6. Under the `Other Files` heading, click `index.html` to open the app! You should see something like this: ![1_basic](https://cloud.githubusercontent.com/assets/1094080/7787624/b6069ae8-01d2-11e5-86cd-50473442d916.png)
+5. Run `elm-reactor` and navigate to [localhost:8000](http://localhost:8000) in your browser. You should see this: ![elm-reactor screenshot](https://cloud.githubusercontent.com/assets/1094080/7787529/9cf9f198-01ce-11e5-9986-fc2da149f6d3.png)
+6. Under the `Other Files` heading, click `index.html` to open the app! You should see this: ![1_basic](https://cloud.githubusercontent.com/assets/1094080/7787624/b6069ae8-01d2-11e5-86cd-50473442d916.png)
 
 
 ### What if elm-reactor crashes?
